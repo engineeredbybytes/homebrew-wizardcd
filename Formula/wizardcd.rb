@@ -1,16 +1,19 @@
 class Wizardcd < Formula
-  desc "One config. One command. Continuous magic. 🪄"
+  desc "One Config. One Command. Continuous Magic. 🪄"
   homepage "https://wizardcd.com"
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.0.8/wizardcd-1.0.8-macos.tar.gz"
-  sha256 "<REPLACE_WITH_SHA256>"
+  version "1.0.0"  # Will be auto-updated by CI
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.0.0/wizardcd-1.0.0-macos.tar.gz"
+  sha256 "replace_this_with_real_checksum"  # Auto-updated by CI
   license "MIT"
-  version "1.0.8"
 
   def install
-    bin.install "wizard"
+    # Extract binary and install it into Homebrew's bin directory
+    bin.install "bin/wizard"
   end
 
   test do
-    system "#{bin}/wizard", "--version"
+    # Simple version test to confirm binary executes correctly
+    output = shell_output("#{bin}/wizard --version")
+    assert_match version.to_s, output
   end
 end
