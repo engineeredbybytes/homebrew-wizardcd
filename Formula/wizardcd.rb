@@ -1,9 +1,9 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.0" # This will be replaced by the current tag (e.g., "1.0.0")
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.0/wizardcd-1.2.0.tar.gz" # This will be replaced by the GitHub Releases URL
-  sha256 "2019ab09ee4e9e7c5a2c9631dccce66465e163425d1877ebe295e089dc315df3" # This will be replaced by the calculated SHA256 checksum
+  version "1.2.2")
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.2/wizardcd-1.2.2.tar.gz" # This will be replaced by the GitHub Releases URL
+  sha256 "172096177193c9003759cef2356e39208050ed7f0cc6cf29fc3c642c1d83394c" # This will be replaced by the calculated SHA256 checksum
   license "MIT"
 
   def install
