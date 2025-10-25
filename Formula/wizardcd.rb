@@ -1,7 +1,7 @@
 class Wizardcd < Formula
   desc "WizardCD – One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.0"
+  version "1.2.36"
   license "MIT"
 
   # --------------------------------------------------
@@ -9,25 +9,18 @@ class Wizardcd < Formula
   # --------------------------------------------------
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.0/wizardcd-darwin-arm64.tar.gz"
-      sha256 "REPLACE_ARM64_SHA"
+      url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.36/wizardcd-darwin-arm64.tar.gz"
+      sha256 "65fb818e123c4e3b03513c96c30b3130963b28b9e5c7e5d12cfbb28547b74f63"
     else
-      url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.0/wizardcd-darwin-amd64.tar.gz"
-      sha256 "REPLACE_AMD64_SHA"
+      url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.36/wizardcd-darwin-amd64.tar.gz"
+      sha256 "65fb818e123c4e3b03513c96c30b3130963b28b9e5c7e5d12cfbb28547b74f63"
     end
-  end
-
-  on_linux do
-    url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.0/wizardcd-linux-x86_64.tar.gz"
-    sha256 "REPLACE_LINUX_SHA"
   end
 
   # --------------------------------------------------
   # Installation
   # --------------------------------------------------
   def install
-    # Homebrew automatically extracts the tarball.
-    # The binary should be in the root of the archive.
     bin.install "wizard"
   end
 
