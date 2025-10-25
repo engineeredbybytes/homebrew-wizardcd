@@ -1,23 +1,25 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.16"
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.16/wizardcd-1.2.16.tar.gz"
-  sha256 "9e228b14e199c82fd2929b3536f54e2d2a29c426e548880cc7c2cf9d92a2806d"
+  version "1.2.17" # Auto-updated by workflow tag
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.17/wizardcd-1.2.17.tar.gz" # Auto-updated by GitHub Actions
+  sha256 "REPLACE_WITH_SHA" # Auto-updated by workflow
   license "MIT"
 
   def install
-    # We're inside the extracted tarball root which contains usr/local/bin/wizard
-    # and usr/share/wizardcd — so reference them directly (no nested prefix).
+    # The tarball now contains usr/local/bin/wizard and usr/share/wizardcd/*
+    # Install the launcher
+    bin.install "usr/local/bin/wizard" => "wizard"
 
-    bin.install "usr/local/bin/wizard"
-    chmod 0755, bin/"wizard"
-
+    # Install the shared WizardCD files
     (share/"wizardcd").install Dir["usr/share/wizardcd/*"]
+
+    # Ensure executable permission on the main launcher
+    chmod 0755, bin/"wizard"
   end
 
   test do
-    # Verify that the binary runs and shows version output
+    # Verify CLI version output
     output = shell_output("#{bin}/wizard --version")
     assert_match "WizardCD version", output
   end
