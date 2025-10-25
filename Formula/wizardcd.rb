@@ -1,16 +1,16 @@
 class Wizardcd < Formula
 desc "WizardCD – One Config. One Command. Continuous Magic."
 homepage "https://wizardcd.com"
-version "1.2.47"
+version "1.2.48"
 license "MIT"
 
 on_macos do
 if Hardware::CPU.arm?
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-arm64.tar.gz"
-sha256 "31cd574280b7008fd1622b71bd834b62ec20e6f0e34927a222a723fa3a0b1b38"
+sha256 "95008b4282556025fa1fcd1e23a77dcbc64f441b031c461a742152c361782979"
 else
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-amd64.tar.gz"
-sha256 "31cd574280b7008fd1622b71bd834b62ec20e6f0e34927a222a723fa3a0b1b38"
+sha256 "95008b4282556025fa1fcd1e23a77dcbc64f441b031c461a742152c361782979"
 end
 end
 
@@ -35,8 +35,8 @@ puts ""
 puts "Installation complete! Enjoy continuous magic with WizardCD"
 puts ""
 
-# Display ASCII banner once during installation
-system bin/"wizard", "--banner"
+# Display ASCII banner directly to stdout (bypasses Homebrew logger)
+puts `#{bin}/wizard --banner 2>&1`
 rescue => e
 opoo "Post-install notice: " + e.message
 end
