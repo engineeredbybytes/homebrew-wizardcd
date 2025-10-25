@@ -1,28 +1,19 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.13"
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.13/wizardcd-1.2.13.tar.gz"
-  sha256 "cb736616b26b8da505026bbfd9b5b482ca6306216b76858709ecc5004ad4dbe1"
+  version "1.2.13" # Auto-updated by workflow tag
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.13/wizardcd-1.2.13.tar.gz" # Auto-updated by GitHub Actions
+  sha256 "2b411b41b8360880ef8515db5490dfcbcef3f197066729b3cf224c5d9380752b" # Auto-updated by workflow
   license "MIT"
 
   def install
-    # The tarball extracts directly to usr/local/bin and usr/share/wizardcd
-    # We copy these into Homebrew's managed directories.
+    # We're inside the extracted tarball root which contains usr/local/bin/wizard
+    # and usr/share/wizardcd — so reference them directly (no nested prefix).
 
-    # Ensure destination paths exist
-    (bin).mkpath
-    (share/"wizardcd").mkpath
-
-    # Install the main launcher script (make it executable)
     bin.install "usr/local/bin/wizard"
     chmod 0755, bin/"wizard"
 
-    # Install the shared WizardCD content
-    prefix.install Dir["usr/share/wizardcd/*"]
-
-    # Symlink shared files under Homebrew's share path for accessibility
-    ln_s prefix/"wizardcd", share/"wizardcd"
+    (share/"wizardcd").install Dir["usr/share/wizardcd/*"]
   end
 
   test do
