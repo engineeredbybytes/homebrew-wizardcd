@@ -1,9 +1,9 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.14"
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.14/wizardcd-1.2.14.tar.gz"
-  sha256 "c96d7312c9ef2b6c524933e7d63a755883a61422dd6755927ed4701bff13c6d8"
+  version "1.2.15"
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.15/wizardcd-1.2.15.tar.gz"
+  sha256 "74873f28986a1c2deda79f0eee298ca59fd42feb6e4e8e3a0a8ee230c10c244b"
   license "MIT"
 
   def install
