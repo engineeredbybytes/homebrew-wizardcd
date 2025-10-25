@@ -6,10 +6,10 @@ license "MIT"
 
 on_macos do
 if Hardware::CPU.arm?
-url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v${version}/wizardcd-darwin-arm64.tar.gz"
+url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-arm64.tar.gz"
 sha256 "88f4b618220fbd6e41a404f8f1ea88e5be803c2552c2f860444c8779a17562a4"
 else
-url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v${version}/wizardcd-darwin-amd64.tar.gz"
+url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-amd64.tar.gz"
 sha256 "88f4b618220fbd6e41a404f8f1ea88e5be803c2552c2f860444c8779a17562a4"
 end
 end
