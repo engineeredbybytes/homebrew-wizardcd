@@ -1,9 +1,9 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.4" # This will be replaced automatically by workflow tag
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.4/wizardcd-1.2.4.tar.gz" # Auto-updated by GitHub Actions
-  sha256 "b5d0742ab2ded3f09046b6a92e65d3ea534b45b1697c94fba38bd07cb030a857" # Auto-updated by workflow
+  version "1.2.5"
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.5/wizardcd-1.2.5.tar.gz"
+  sha256 "d09f716c38cf098221374d6dee4071fcf2c38e58f2c51f249bafcad84e68172a"
   license "MIT"
 
   def install
