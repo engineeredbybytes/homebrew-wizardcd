@@ -15,7 +15,8 @@ class Wizardcd < Formula
   end
 
   def install
-    bin.install "wizard"
+    bin.install "bin/wizard"
+    prefix.install "share/wizardcd"   # installs under Cellar path
   end
 
   test do
