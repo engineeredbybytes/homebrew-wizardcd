@@ -1,20 +1,28 @@
 class Wizardcd < Formula
   desc "WizardCD - One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
-  version "1.2.9"
-  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.9/wizardcd-1.2.9.tar.gz"
-  sha256 "ce32c6fff6053da8c5ba1cccfc1dd566f0f389caf7c67bec9f917c57ce590f61"
+  version "1.2.9" # Auto-updated by workflow tag
+  url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.2.9/wizardcd-1.2.9.tar.gz" # Auto-updated by GitHub Actions
+  sha256 "b5d0742ab2ded3f09046b6a92e65d3ea534b45b1697c94fba38bd07cb030a857" # Auto-updated by workflow
   license "MIT"
 
   def install
-    # The tarball now extracts directly to usr/local/bin and usr/share/wizardcd
-    # No 'packaging/' prefix anymore.
+    # The tarball extracts directly to usr/local/bin and usr/share/wizardcd
+    # We copy these into Homebrew's managed directories.
 
-    # Install the main launcher to Homebrew's bin directory
-    bin.install "usr/local/bin/wizard" => "wizard"
+    # Ensure destination paths exist
+    (bin).mkpath
+    (share/"wizardcd").mkpath
 
-    # Install the shared content directory to Homebrew's share location
-    (share/"wizardcd").install Dir["usr/share/wizardcd/*"]
+    # Install the main launcher script (make it executable)
+    bin.install "usr/local/bin/wizard"
+    chmod 0755, bin/"wizard"
+
+    # Install the shared WizardCD content
+    prefix.install Dir["usr/share/wizardcd/*"]
+
+    # Symlink shared files under Homebrew's share path for accessibility
+    ln_s prefix/"wizardcd", share/"wizardcd"
   end
 
   test do
