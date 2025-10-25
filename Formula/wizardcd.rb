@@ -1,5 +1,5 @@
 class Wizardcd < Formula
-  desc "One Config. One Command. Continuous Magic. 🪄"
+  desc "One Config. One Command. Continuous Magic."
   homepage "https://wizardcd.com"
   version "1.0.0"  # Will be auto-updated by CI
   url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v1.0.0/wizardcd-1.0.0-macos.tar.gz"
