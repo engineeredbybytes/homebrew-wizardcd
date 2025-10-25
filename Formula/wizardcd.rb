@@ -1,16 +1,16 @@
 class Wizardcd < Formula
 desc "WizardCD – One Config. One Command. Continuous Magic."
 homepage "https://wizardcd.com"
-version "1.2.42"
+version "1.2.43"
 license "MIT"
 
 on_macos do
 if Hardware::CPU.arm?
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-arm64.tar.gz"
-sha256 "6c8b92e01f4b3619076febe4af65bf7ae818aa6adb7a547547f2d65b4c6da06a"
+sha256 "d43bba28cae61a1c11cd24128152316cd6df26c7e7ef98add83a7713c725a0bb"
 else
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-amd64.tar.gz"
-sha256 "6c8b92e01f4b3619076febe4af65bf7ae818aa6adb7a547547f2d65b4c6da06a"
+sha256 "d43bba28cae61a1c11cd24128152316cd6df26c7e7ef98add83a7713c725a0bb"
 end
 end
 
@@ -21,14 +21,17 @@ chmod "+x", Dir["\#{prefix}/wizardcd/bin/**/*.sh"]
 end
 
 def post_install
-logdir = Pathname.new("/var/log/wizardcd")
+logdir = HOMEBREW_PREFIX/"var/log/wizardcd"
 logdir.mkpath unless logdir.directory?
 logdir.chmod 0o777
 ohai "--------------------------------------------------"
 ohai "WizardCD installed successfully (v#{version})"
 ohai "Executable: \#{bin}/wizard"
+ohai "Logs: \#{logdir}"
 ohai "You can now run: wizard --help"
 ohai "--------------------------------------------------"
+rescue => e
+opoo "Post-install notice: #{e.message}"
 end
 
 test do
