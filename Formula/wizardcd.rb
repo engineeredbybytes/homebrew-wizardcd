@@ -1,16 +1,16 @@
 class Wizardcd < Formula
 desc "WizardCD – One Config. One Command. Continuous Magic."
 homepage "https://wizardcd.com"
-version "1.2.82"
+version "1.2.83"
 license "MIT"
 
 on_macos do
 if Hardware::CPU.arm?
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-arm64.tar.gz"
-sha256 "705b85eab88e3a93ec9ee2c7c84919809f607ea89e03edde43f53b1122856fa4"
+sha256 "cf78322ae7e1b70445955765ecec7b087306c96cbb9871bce0a02748ac261689"
 else
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-amd64.tar.gz"
-sha256 "705b85eab88e3a93ec9ee2c7c84919809f607ea89e03edde43f53b1122856fa4"
+sha256 "cf78322ae7e1b70445955765ecec7b087306c96cbb9871bce0a02748ac261689"
 end
 end
 
