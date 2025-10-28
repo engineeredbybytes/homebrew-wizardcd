@@ -1,31 +1,26 @@
 class Wizardcd < Formula
 desc "WizardCD – One Config. One Command. Continuous Magic."
 homepage "https://wizardcd.com"
-version "1.3.27"
+version "1.3.28"
 license "MIT"
 
 on_macos do
 if Hardware::CPU.arm?
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-arm64.tar.gz"
-sha256 "dafa20f688d192a2ec4354dd3162ea3b50f1fe6d5cf4fa59429dd900dfb39611"
+sha256 "f0f4f01604657955a9aafdd2114c5750f4a789ea863d248e674689936b7e1190"
 else
 url "https://github.com/engineeredbybytes/wizardcd-releases/releases/download/v#{version}/wizardcd-darwin-amd64.tar.gz"
-sha256 "dafa20f688d192a2ec4354dd3162ea3b50f1fe6d5cf4fa59429dd900dfb39611"
+sha256 "5ef03ae7057e3c60a6ae112c06fedfd156b19b506d8a220f11473607e7bb825c"
 end
 end
 
 def install
 bin.install "bin/wizard"
 prefix.install "share/wizardcd"
-
-# Secure post-install permissions (Phase 2.3)
-if Dir.exist?("\#{prefix}/wizardcd/bin")
-  chmod "u=rx,go=", Dir["\#{prefix}/wizardcd/bin/**/*.sh"]
-  chmod "u=rx,go=", Dir["\#{prefix}/wizardcd/**/*.sh"]
-end
+chmod "+x", Dir["#{prefix}/wizardcd/bin/**/*.sh"]
 
 # Create VERSION file for runtime banner
-(File.write("\#{prefix}/wizardcd/VERSION", version) rescue nil)
+(File.write("#{prefix}/wizardcd/VERSION", version) rescue nil)
 end
 
 def post_install
